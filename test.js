@@ -1,5 +1,14 @@
-const { default: axios } = require("axios");
+function updateArray(arr, n, step) {
+    const startIndex = arr.length;
+    const endValue = arr[startIndex - 1] + step;
 
-const response = axios.get("https://api.skystats.lol/partyfinder/uhlaskis?key=73d628c622231d1603013f90a8dc198e8eeddc1901d4bab74b5e46b0470417a71aad66da42ef1e3276f1e1c3c95f71c67d46e37fa347626d18c0731734c729ee")
+    for (let i = startIndex; i < startIndex + n; i++) {
+        arr.push(endValue + (i - startIndex) * step);
+    }
+}
 
-console.log(response.data)
+// Usage:
+updateArray(catacombs: [
+    50, 75, 110, 160, 230, 330, 470, 670, 950, 1340, 1890, 2665, 3760, 5260, 7380, 10300, 14400, 20000, 27600, 38000, 52500, 71500, 97000, 132000, 180000, 243000, 328000, 445000, 600000, 800000, 1065000,
+    1410000, 1900000, 2500000, 3300000, 4300000, 5600000, 7200000, 9200000, 12000000, 15000000, 19000000, 24000000, 30000000, 38000000, 48000000, 60000000, 75000000, 93000000, 116250000, 316250000, 516250000,
+], 10, 200000000);

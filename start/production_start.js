@@ -28,7 +28,10 @@ const limiter = rateLimit({
     },
 });
 
-
+app.get('/ping', async (req, res) => {
+    res.send("pong")
+  })
+  
 app.use(limiter);
 app.use(Auth);
 app.use(require('cors')());

@@ -21,7 +21,7 @@ module.exports = wrap(async function (req, res) {
             magical_power: profile?.accessory_bag_storage.highest_magical_power,
             selected_magical_power: profile?.accessory_bag_storage.selected_power,
             dungeons: {
-                catacombs_secrets: playerData.achievements.skyblock_treasure_hunter,
+                catacombs_secrets: playerData.player.achievements.skyblock_treasure_hunter,
                 catacombs_experience: catacombs,
                 last_floor: dungeons_data?.last_dungeon_run,
                 selected_class: dungeons_data?.selected_dungeon_class,

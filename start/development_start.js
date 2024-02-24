@@ -1,12 +1,14 @@
 //CREDIT: https://github.com/Senither/hypixel-skyblock-facade (Modified)
-const NotFound = require('./middleware/notfound');
-const Auth = require('./middleware/auth');
-const ErrorHandler = require('./middleware/errorhandler');
+const NotFound = require('../middleware/notfound');
+const Auth = require('../middleware/auth');
+const ErrorHandler = require('../middleware/errorhandler');
 const rateLimit = require('express-rate-limit');
 const express = require('express');
 const app = express();
-
-const checkForUpdate = require('./middleware/checkforupdate');
+const partyStatsRoute = require("../routes/partyStatsRoute")
+const testRoute = require('../routes/testRoute');
+const keyRoute = require("../routes/keyRoute")
+const checkForUpdate = require('../middleware/checkforupdate');
 require('dotenv').config();
 const port = process.env.PORT || 3000;
 
@@ -24,17 +26,22 @@ const limiter = rateLimit({
     },
 });
 
-app.use(express.static(__dirname + '/public'));
-app.use(limiter);
-app.use(Auth);
+app.get('/ping', async (req, res) => {
+    res.send("pong")
+  })
+
+
+app.get(`/test`, testRoute);
+app.get(`/generateHash/:salt`, keyRoute)
+app.get(`/partyfinder/:username`, partyStatsRoute)
+
+
+
 app.use(require('cors')());
 app.use(express.json({ limit: '15mb' }));
 app.use(express.urlencoded({ extended: true }));
-
 app.use(NotFound);
 app.use(ErrorHandler);
-
-
 checkForUpdate();
 
 app.listen(port, () => {

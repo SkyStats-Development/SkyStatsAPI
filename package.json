@@ -1,31 +1,31 @@
 {
-    "name": "skyhelperapi",
+    "name": "skystatsapi",
     "version": "1.0.0",
-    "description": "API for the features of the SkyHelper Discord bot",
+    "description": "MEOW > We code things here at skystats development",
     "main": "index.js",
     "scripts": {
-        "start": "node ."
+        "start": "pm2 start --only SkyStats-Production",
+        "dev": "pm2 start --only SkyStats-Development",
+        "update": "node ./start/update_script.js",
+        "build": "pnpm i"
     },
     "keywords": [
         "api",
         "hypixel",
         "skyblock"
     ],
-    "author": "Altpapier",
-    "license": "MIT",
+    "author": "Altpapier, Axle, SkyStats Development Team",
+    "license": "CUSTOM",
     "dependencies": {
-        "axios": "^0.22.0",
+        "axios": "^1.6.2",
         "chalk": "^4.1.2",
         "cors": "^2.8.5",
         "dotenv": "^10.0.0",
-        "express": "^4.17.1",
-        "express-rate-limit": "^6.3.0",
-        "lilyweight": "^2.7.0",
+        "express": "^4.18.2",
+        "express-rate-limit": "^6.11.2",
+        "lilyweight": "^2.7.2",
         "prismarine-nbt": "^1.6.0",
-        "skyhelper-networth": "^1.6.0",
-        "util": "^0.12.4"
-    },
-    "engines": {
-        "node": "=16.7.0"
+        "skyhelper-networth": "^1.18.4",
+        "util": "^0.12.5"
     }
 }

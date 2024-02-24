@@ -33,6 +33,6 @@ module.exports = (req, res, next) => {
 
     return res.status(400).json({
         status: 400,
-        reason: 'Missing "key" query parameter, or an "authorization" header with a valid SkyHelper API key',
+        reason: 'Missing "key" query parameter, or an "authorization" header with a valid SkyStats API key',
     });
 };

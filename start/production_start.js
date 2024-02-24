@@ -4,6 +4,9 @@ const Auth = require('../middleware/auth');
 const ErrorHandler = require('../middleware/errorhandler');
 const rateLimit = require('express-rate-limit');
 const express = require('express');
+const partyStatsRoute = require("../routes/partyStatsRoute")
+const testRoute = require('../routes/testRoute');
+const keyRoute = require("../routes/keyRoute")
 
 const app = express();
 
@@ -31,7 +34,9 @@ app.use(Auth);
 app.use(require('cors')());
 app.use(express.json({ limit: '15mb' }));
 app.use(express.urlencoded({ extended: true }));
-
+app.get(`/test`, testRoute);
+app.get(`/generateHash/:salt`, keyRoute)
+app.get(`/partyfinder/:username`, partyStatsRoute)
 app.use(NotFound);
 app.use(ErrorHandler);
 

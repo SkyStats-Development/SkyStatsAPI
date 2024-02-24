@@ -32,14 +32,14 @@ module.exports = wrap(async function (req, res) {
                         s_plus_runs: dungeons_data?.dungeon_types?.catacombs?.fastest_time_s_plus,
                         runs: dungeons_data?.dungeon_types?.catacombs?.fastest_time
                         },
-                    }
-                },
-                master_catacombs: {
-                    fastest_times: {
-                        s_runs: dungeons_data?.dungeon_types?.master_catacombss?.fastest_time_s,
-                        s_plus_runs: dungeons_data?.dungeon_types?.master_catacombs?.fastest_time_s_plus,
-                        runs: dungeons_data?.dungeon_types?.master_catacombs?.fastest_time
-                        },
+                    },
+                    master_catacombs: {
+                        fastest_times: {
+                            s_runs: dungeons_data?.dungeon_types?.master_catacombss?.fastest_time_s,
+                            s_plus_runs: dungeons_data?.dungeon_types?.master_catacombs?.fastest_time_s_plus,
+                            runs: dungeons_data?.dungeon_types?.master_catacombs?.fastest_time
+                            },
+                    },
                 },
             }
     }

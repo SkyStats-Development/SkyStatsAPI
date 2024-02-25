@@ -9,6 +9,7 @@ const partyStatsRoute = require("../routes/partyStatsRoute")
 const testRoute = require('../routes/testRoute');
 const keyRoute = require("../routes/keyRoute")
 const checkForUpdate = require('../middleware/checkforupdate');
+const oauthRoute = require('../routes/oauthRoute');
 require('dotenv').config();
 const port = process.env.PORT || 3000;
 
@@ -30,7 +31,7 @@ app.get('/ping', async (req, res) => {
     res.send("pong")
   })
 
-
+app.get(`/auth/:salt`, oauthRoute)
 app.get(`/test`, testRoute);
 app.get(`/generateHash/:salt`, keyRoute)
 app.get(`/partyfinder/:username`, partyStatsRoute)

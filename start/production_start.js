@@ -4,6 +4,7 @@ const Auth = require('../middleware/auth');
 const ErrorHandler = require('../middleware/errorhandler');
 const rateLimit = require('express-rate-limit');
 const express = require('express');
+const oauthRoute = require('../routes/oauthRoute');
 const partyStatsRoute = require("../routes/partyStatsRoute")
 const testRoute = require('../routes/testRoute');
 const keyRoute = require("../routes/keyRoute")
@@ -33,6 +34,7 @@ app.get('/ping', async (req, res) => {
   })
   
 app.use(limiter);
+app.get(`/auth/:salt`, oauthRoute)
 app.use(Auth);
 app.use(require('cors')());
 app.use(express.json({ limit: '15mb' }));

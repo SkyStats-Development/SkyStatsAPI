@@ -25,7 +25,7 @@
         "express-rate-limit": "^6.11.2",
         "lilyweight": "^2.7.2",
         "prismarine-nbt": "^1.6.0",
-        "skyhelper-networth": "^1.18.4",
+        "skyhelper-networth": "^1.18.5",
         "util": "^0.12.5"
     }
 }

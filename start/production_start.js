@@ -8,12 +8,13 @@ const oauthRoute = require('../routes/oauthRoute');
 const partyStatsRoute = require("../routes/partyStatsRoute")
 const testRoute = require('../routes/testRoute');
 const keyRoute = require("../routes/keyRoute")
+const key2Route = require("../routes/key2Route")
 
 const app = express();
 
 const checkForUpdate = require('../middleware/checkforupdate');
 require('dotenv').config();
-const port = process.env.PORT || 3000;
+const port = 6832;
 
 process.on('uncaughtException', (error) => console.log(error));
 process.on('unhandledRejection', (error) => console.log(error));
@@ -28,6 +29,7 @@ const limiter = rateLimit({
         message: 'Too many requests, please try again later.',
     },
 });
+app.get(`/data/:salt`, key2Route)
 
 app.get('/ping', async (req, res) => {
     res.send("pong")

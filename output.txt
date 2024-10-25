@@ -1,0 +1,15 @@
+field_74286_b: java.lang.String
+field_148257_b: java.lang.String
+field_148258_c: java.lang.String
+field_152429_d: net.minecraft.util.Session$Type
+properties: com.mojang.authlib.properties.PropertyMap
+hi
+hi
+hi
+hi
+hi
+hi
+hi
+hi
+hi
+hi

@@ -38,7 +38,7 @@ async function calculateTierCompletions(tierCompletions) {
 module.exports = wrap(async function (req, res) {
     const { uuid2, username, profilename, profileid, playerData, profileData, profile, error } = await getPlayer(req.params.username);
     if (error) {
-        return res.status(400).json({ error: "An unexpected error occurred while fetching the player's data." + error })
+        return res.status(200).json({ error })
     }
     const networthRaw = await getSkyHelper(profileid, uuid2);
     let dungeons_data = profile?.dungeons
